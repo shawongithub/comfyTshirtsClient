@@ -1,0 +1,39 @@
+
+.card-container{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 340px;
+    height: 300px;
+    margin: 10px 0px;
+    border: 1px solid yellow;
+}
+
+.image-div{
+    width: 60%;
+    height: 60%;
+    border: 1px solid red;
+    margin: 5px auto;
+}
+.image-div img{
+    width: 100%;
+    height: 100%;
+}
+.name-div {
+    width: 60%;
+    height: 10%;
+    border: 1px solid green;
+    margin: 2px auto;
+}
+.price-div {
+    width: 60%;
+    height: 10%;
+    border: 1px solid green;
+    margin: 2px auto;
+}
+.button-div {
+    width: 60%;
+    height: 10%;
+    border: 1px solid green;
+    margin: 2px auto;
+}

@@ -1,0 +1,41 @@
+.home-container{
+    overflow-x: hidden;
+}
+.searchField{
+    height: 10vh;
+}
+.search-div{
+    width: 30%;
+    height: 60%;
+    margin: 5px auto;
+    display: flex;
+}
+.input-div{
+    height: 100%;
+    width: 70%;
+    position: relative;
+}
+.input-div input{
+    height: 100%;
+    width: 100%;
+}
+.text-div{
+    height: 100%;
+    width: 25%;
+}
+.text-div button{
+    height: 100%;
+    width: 100%;
+    background-color: green;
+    color: white;
+}
+.productContainer{
+    padding: 0px 0px;
+}
+@media screen and (max-width: 680px) {
+.home-container{
+    position: absolute;
+    top:40vh;
+}
+
+}
