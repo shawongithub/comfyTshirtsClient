@@ -1,0 +1,8 @@
+.manage-card-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 6vh;
+    background-color: lightcyan;
+    margin: 2px 0px;
+}
