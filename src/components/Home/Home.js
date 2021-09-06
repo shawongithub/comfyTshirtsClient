@@ -1,9 +1,18 @@
 import React from 'react';
-import { products } from '../../fakeData/fakeData';
+import { useState, useEffect } from 'react';
 import './Home.css'
 import Card from '../Card/Card'
 const Home = () => {
-
+    const [products, setProducts] = useState([])
+    useEffect(() => {
+        fetch('http://localhost:5000/products')
+            .then(res => res.json())
+            .then(data => {
+                setProducts(data)
+            }
+            )
+    }, [])
+    console.log(products)
     return (
         <div className="home-container">
             <div className="searchField">
@@ -15,7 +24,7 @@ const Home = () => {
             <div className="productContainer">
                 <div className="row">
                     {
-                        products.map(pd => <Card product={pd} key={pd.id}></Card>)
+                        products.map(pd => <Card product={pd} key={pd._id}></Card>)
                     }
 
                 </div>

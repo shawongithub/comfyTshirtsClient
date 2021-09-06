@@ -3,12 +3,12 @@ import './Card.css'
 
 const Card = props => {
 
-    const { name, image, price } = props.product
+    const { name, imageURL, price } = props.product
     return (
         <div className="col-sm-12 col-md-4 container">
             <div className="card-container">
                 <div className="image-div">
-                    <img src={image} alt="" />
+                    <img src={imageURL} alt="" />
                 </div>
                 <div className="name-div">{name}</div>
                 <div className="price-div">{price}</div>
