@@ -2,11 +2,10 @@ import React from 'react';
 import './Admin.css'
 import { Link, useRouteMatch, Switch, Route } from 'react-router-dom'
 import Topic from './Topic/Topic';
+import ManageProduct from './ManageProduct/ManageProduct';
 
 const Admin = () => {
     let { path, url } = useRouteMatch();
-    console.log(path)
-    console.log(url)
     return (
         <div className='admin-container'>
             <div className="admin-sidebar">
@@ -18,7 +17,7 @@ const Admin = () => {
             <div className="admin-works">
                 <Switch>
                     <Route exact path={path}>
-                        <h3>Please select a topic.</h3>
+                        <ManageProduct></ManageProduct>
                     </Route>
                     <Route path={`${path}/:topicId`}>
                         <Topic></Topic>

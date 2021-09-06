@@ -3,7 +3,9 @@ import './ManageCards.css'
 
 
 const ManageCards = props => {
-    const { name, price, type } = props.product
+    console.log(props.product)
+    console.log(props.delete)
+    const { name, price, type, _id } = props.product
     return (
         <div className="manage-card-container">
             <div>{name}</div>
@@ -11,7 +13,7 @@ const ManageCards = props => {
             <div>{price}</div>
             <div>
                 <button>Edit</button>
-                <button>Delete</button>
+                <button onClick={() => props.delete(_id)}>Delete</button>
             </div>
         </div>
     );

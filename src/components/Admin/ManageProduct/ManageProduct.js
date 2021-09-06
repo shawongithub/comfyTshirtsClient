@@ -1,8 +1,29 @@
 import React from 'react';
 import './ManageProduct.css'
+import { useState, useEffect } from 'react';
 import ManageCards from './ManageCards/ManageCards';
-import { products } from '../../../fakeData/fakeData';
+
 const ManageProduct = () => {
+    const [products, setProducts] = useState([])
+    useEffect(() => {
+        fetch('http://localhost:5000/products')
+            .then(res => res.json())
+            .then(data => {
+                setProducts(data)
+            }
+            )
+    }, [])
+
+    const handleDelete = _id => {
+        fetch('http://localhost:5000/deleteProduct', {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ _id: _id })
+        })
+            .then(res => console.log(res))
+    }
     return (
         <div>
             <div className="manage-header">
@@ -13,7 +34,7 @@ const ManageProduct = () => {
             </div>
             <div className="manage-products">
                 {
-                    products.map(pd => <ManageCards product={pd} key={pd.id} />)
+                    products.map(pd => <ManageCards product={pd} delete={handleDelete} key={pd.id} />)
                 }
 
             </div>
