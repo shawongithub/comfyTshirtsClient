@@ -7,7 +7,6 @@ import { CartContext } from '../../App';
 const Home = () => {
     const [products, setProducts] = useState([])
     const [cart, setCart] = useContext(CartContext)
-    console.log(cart)
     useEffect(() => {
         fetch('http://localhost:5000/products')
             .then(res => res.json())
@@ -18,9 +17,17 @@ const Home = () => {
     }, [])
     const handleAddToCart = _id => {
         const product = products.find(pd => pd._id === _id)
-        const newCart = [...cart, product]
-        setCart(newCart)
+        let checkCart = cart.find(pd => pd._id === _id)
+        if (checkCart === undefined) {
+            product["count"] = 1
+            const newCart = [...cart, product]
+            setCart(newCart)
+        } else {
+            checkCart["count"] = checkCart.count + 1
+        }
+
     }
+
     return (
         <div className="home-container">
             <div className="searchField">

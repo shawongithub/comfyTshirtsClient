@@ -9,6 +9,7 @@ import Header from './components/Header/Header'
 import Home from './components/Home/Home'
 import Admin from './components/Admin/Admin';
 import { useState, createContext } from 'react';
+import Cart from './components/Cart/Cart';
 export const CartContext = createContext()
 
 function App() {
@@ -24,6 +25,9 @@ function App() {
             </Route>
             <Route exact path='/'>
               <Home></Home>
+            </Route>
+            <Route path='/review'>
+              <Cart></Cart>
             </Route>
             <Route path='/admin'>
               <Admin></Admin>
