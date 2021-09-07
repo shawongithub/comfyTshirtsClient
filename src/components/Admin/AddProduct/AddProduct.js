@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useState } from 'react';
 
 const AddProduct = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit } = useForm();
     const [imageURL, setImageURL] = useState(null)
     const onSubmit = data => {
         const productData = {
@@ -22,7 +22,7 @@ const AddProduct = () => {
             },
             body: JSON.stringify(productData)
         })
-        .then(res=>console.log(res))
+            .then(res => console.log(res))
     }
     const handleImageUpload = event => {
         const imageData = new FormData()

@@ -1,9 +1,13 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import './Home.css'
 import Card from '../Card/Card'
+import { CartContext } from '../../App';
+
 const Home = () => {
     const [products, setProducts] = useState([])
+    const [cart, setCart] = useContext(CartContext)
+    console.log(cart)
     useEffect(() => {
         fetch('http://localhost:5000/products')
             .then(res => res.json())
@@ -12,7 +16,11 @@ const Home = () => {
             }
             )
     }, [])
-    console.log(products)
+    const handleAddToCart = _id => {
+        const product = products.find(pd => pd._id === _id)
+        const newCart = [...cart, product]
+        setCart(newCart)
+    }
     return (
         <div className="home-container">
             <div className="searchField">
@@ -24,7 +32,7 @@ const Home = () => {
             <div className="productContainer">
                 <div className="row">
                     {
-                        products.map(pd => <Card product={pd} key={pd._id}></Card>)
+                        products.map(pd => <Card product={pd} addToCart={handleAddToCart} key={pd._id}></Card>)
                     }
 
                 </div>

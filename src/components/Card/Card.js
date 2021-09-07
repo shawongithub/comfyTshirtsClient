@@ -3,7 +3,7 @@ import './Card.css'
 
 const Card = props => {
 
-    const { name, imageURL, price } = props.product
+    const { name, imageURL, price, _id } = props.product
     return (
         <div className="col-sm-12 col-md-4 container">
             <div className="card-container">
@@ -12,7 +12,7 @@ const Card = props => {
                 </div>
                 <div className="name-div">{name}</div>
                 <div className="price-div">{price}</div>
-                <div className="button-div"><button>Add to cart</button></div>
+                <div className="button-div"><button onClick={() => props.addToCart(_id)}>Add to cart</button></div>
             </div>
         </div>
     );
