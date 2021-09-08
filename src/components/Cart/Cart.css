@@ -1,0 +1,32 @@
+.cart-container{
+    display: flex;
+}
+.cart-left{
+    width: 60%;
+}
+.cart-right{
+    width: 40%;
+    text-align: center;
+}
+.checkout-header{
+    display: flex;
+    height: 8vh;
+    background-color:whitesmoke;
+    justify-content: space-around;
+    align-items: center;
+}
+.checkout-cart{
+    display: flex;
+    background-color:whitesmoke;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5px 0px;
+}
+.cart-image{
+    width: 25%;
+    height: 100px;
+}
+.cart-image img{
+    width: 50%;
+    height: 100%;
+}

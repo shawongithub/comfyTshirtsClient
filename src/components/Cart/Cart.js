@@ -1,13 +1,37 @@
 import React from 'react';
 import { useContext } from 'react';
 import { CartContext } from '../../App';
+import './Cart.css'
+
 const Cart = () => {
     const [cart] = useContext(CartContext)
-    console.log(cart)
+
+    let sum = cart.reduce((prev, cur) => prev + parseInt(cur.price) * parseInt(cur.count), 0)
+    console.log(sum)
     return (
-        <div>
-            <h1>This is cart component</h1>
+        <div className="cart-container">
+            <div className="cart-left">
+                <div className="checkout-header">
+                    <div className="header-name">Name</div>
+                    <div className="header-image">Image</div>
+                    <div className="header-quantity">Quantity</div>
+                    <div className="header-price">Price</div>
+                </div>
+                {
+                    cart.map(cartPd => <div className="checkout-cart" key={cartPd._id}>
+                        <div className="cart-name">{cartPd.name}</div>
+                        <div className="cart-image"><img src={cartPd.imageURL} alt="" /></div>
+                        <div className="cart-quantity">{cartPd.count}</div>
+                        <div className="cart-price">{cartPd.price * cartPd.count}</div>
+                    </div>)
+                }
+            </div>
+            <div className="cart-right">
+                <p>Total Cost : {sum}</p>
+                <button>Place Order</button>
+            </div>
         </div>
+
     );
 };
 
