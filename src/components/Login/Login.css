@@ -16,7 +16,6 @@
 }
 input:hover{
     cursor: pointer;
-    outline: none;
 }
 ::placeholder { 
     color: red;
