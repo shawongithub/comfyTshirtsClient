@@ -3,7 +3,7 @@ import './Login.css'
 
 import { UserContext } from '../../App';
 import { useContext } from 'react';
-import { Link, useHistory, useLocation } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 
 import "firebase/auth";
 import firebaseConfig from '../../firebaseConfig';

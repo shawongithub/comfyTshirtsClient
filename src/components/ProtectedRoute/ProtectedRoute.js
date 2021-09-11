@@ -7,6 +7,7 @@ import { UserContext } from "../../App";
 
 const ProtectedRoute = ({ children, ...rest }) => {
     const [user] = useContext(UserContext)
+
     return (
         <Route
             {...rest}
